@@ -2,6 +2,10 @@
 const URL = "";
 const socket = io.connect(URL); 
 
+socket.on('chat_message',(data) =>{
+    console.log(data);
+})
+
 function sendMessage() {
     // console.log('send message!!')
     var message = document.getElementById('message').value;
