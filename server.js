@@ -2,12 +2,21 @@
 const express = require('express');
 const app = express();
 
-app.use(express.urlencoded({ extended:true}));
+app.use(express.urlencoded({ extended: true }));
 // publicフォルダを、Web公開
 app.use(express.static(__dirname + '/public'));
 
 // HTTPサーバの作成
-const { createServar } = require('node:http');
-const server = createServar(app);
+const { createServer } = require('node:http');
+const server = createServer(app);
 
+//環境変数読み込み
+const dotenv = require('dotenv');
+dotenv.config();
+const host = process.env.HOST;
+const port = process.env.PORT;
 
+// HTTPサーバー待機
+server.listen(port, host, ()=> {
+    console.log(`listening on http://${host}:${port}`);
+})
