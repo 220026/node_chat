@@ -26,11 +26,10 @@ const io = new Server(server);
 // connection event
 io.on('connection', (socket) => {
     console.log('connected!!!')
-    console.log(socket.id);
+    console.log(`SocketID: ${socket.id}`);
 
     //chatメッセージの受信
     socket.on('chat_message', (data) => {
-        console.log(socket.id);
         console.log(data);
         //送信ユーザのSocketIDを追加
         data.socketID = socket.id;
