@@ -2,7 +2,7 @@
 const URL = "";
 const socket = io.connect(URL); 
 
-socket.on('chat_message',(data) =>{
+socket.on('chat_message', (data) => {
     console.log(data);
 })
 
