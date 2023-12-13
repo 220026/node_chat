@@ -18,5 +18,6 @@ const port = process.env.PORT;
 
 // HTTPサーバー待機
 server.listen(port, host, ()=> {
+    console.log('Server Listen...');
     console.log(`listening on http://${host}:${port}`);
 })
