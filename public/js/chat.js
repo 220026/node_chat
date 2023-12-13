@@ -4,6 +4,9 @@ const socket = io.connect(URL);
 
 socket.on('chat_message', (data) => {
     console.log(data);
+    var p = document.createElement('p');
+    p.innerText = data.socket_id + ": " + data.message;
+    document.getElementById('chat-list').prepend(p);
 })
 
 function sendMessage() {
